@@ -1,169 +1,201 @@
-:root {
-  --bg-color: #FFF0F6;
-  --card-bg: #FFFFFF;
-  --button-bg: #F78FB3;
-  --button-hover: #EA5C94;
-  --heading-color: #C44569;
-  --text-color: #444444;
-  --accent-color: #9C27B0;
-  --clear-button-bg: #E0E0E0;
-  --clear-button-hover: #BDBDBD;
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
 }
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Poppins', sans-serif;
+body, html {
   margin: 0;
-  padding: 20px;
-  min-height: 100vh;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #2c3e50;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .container {
-  background-color: var(--card-bg);
-  max-width: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 420px;
   width: 100%;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  padding: 35px 30px 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
 }
 
 h1 {
-  color: var(--heading-color);
-  text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #27ae60;
 }
 
 label {
   display: block;
-  margin-bottom: 8px;
+  text-align: left;
+  margin: 20px 0 8px 0;
   font-weight: 600;
-  color: var(--heading-color);
+  font-size: 0.95rem;
+}
+
+/* Tooltips styling */
+label[title] {
+  position: relative;
+  cursor: help;
+}
+
+label[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  top: 120%;
+  background: #27ae60;
+  color: white;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+label[title]::after {
+  opacity: 0;
+  visibility: hidden;
 }
 
 select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 15px;
+  font-size: 1rem;
   border-radius: 8px;
-  border: 1.5px solid #ccc;
-  margin-bottom: 20px;
-  font-size: 16px;
+  border: 2px solid #27ae60;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-select[multiple] {
-  height: 130px;
+select:focus {
+  border-color: #2ecc71;
 }
 
 .button-group {
+  margin-top: 30px;
   display: flex;
+  justify-content: space-between;
   gap: 15px;
-  margin-bottom: 20px;
 }
 
 button {
-  background-color: var(--button-bg);
-  color: white;
-  border: none;
-  padding: 14px 0;
   flex: 1;
-  border-radius: 30px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.05rem;
   cursor: pointer;
+  background-color: #27ae60;
+  color: white;
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(247, 143, 179, 0.4);
 }
 
 button:hover {
-  background-color: var(--button-hover);
-  box-shadow: 0 6px 12px rgba(234, 92, 148, 0.6);
+  background-color: #2ecc71;
+  box-shadow: 0 7px 20px rgba(46, 204, 113, 0.6);
 }
 
 .clear-button {
-  background-color: var(--clear-button-bg);
-  color: #333;
-  border-radius: 30px;
-  box-shadow: none;
+  background-color: #e74c3c;
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }
 
 .clear-button:hover {
-  background-color: var(--clear-button-hover);
-  color: white;
-  box-shadow: 0 0 8px #bdbdbd;
+  background-color: #c0392b;
+  box-shadow: 0 7px 20px rgba(192, 57, 43, 0.6);
 }
 
+/* Routine box with fade-in animation */
 .routine-box {
-  margin-top: 30px;
-  padding: 20px;
-  background: #ffe8f2;
-  border-left: 6px solid var(--accent-color);
-  border-radius: 8px;
+  margin-top: 35px;
+  padding: 18px 25px;
+  border-radius: 14px;
+  background: #dff0d8;
+  border: 2px solid #27ae60;
+  text-align: left;
+  animation: fadeIn 0.7s ease forwards;
 }
 
-.routine-box h2 {
-  margin-top: 0;
-  color: var(--heading-color);
+.routine-box.show {
+  display: block !important;
+  animation-name: fadeIn;
 }
 
-.product-card {
-  background: var(--card-bg);
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Onboarding overlay */
+.onboarding-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 62, 80, 0.9);
   display: flex;
-  gap: 15px;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
-.product-card img {
-  width: 80px;
-  height: 80px;
+.onboarding-content {
+  background: white;
+  padding: 25px 35px;
+  max-width: 380px;
+  border-radius: 12px;
+  text-align: center;
+  color: #2c3e50;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.onboarding-content h2 {
+  margin-bottom: 12px;
+}
+
+.onboarding-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.onboarding-content button {
+  padding: 10px 20px;
+  background-color: #27ae60;
+  border: none;
+  color: white;
+  font-weight: 600;
   border-radius: 8px;
-  object-fit: cover;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.product-card h4 {
-  margin: 0 0 6px 0;
-  color: var(--heading-color);
-}
-
-.product-card p {
-  margin: 0;
-  font-size: 14px;
-  color: var(--text-color);
-}
-
-.product-card a {
-  color: var(--accent-color);
-  text-decoration: underline;
-  font-size: 14px;
-  margin-left: auto;
-}
-
-@media (max-width: 640px) {
-  .container {
-    padding: 20px;
-  }
-  button {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  select,
-  button {
-    font-size: 14px;
-  }
-
-  .button-group {
-    flex-direction: column;
-  }
-
-  button {
-    padding: 12px;
-  }
+.onboarding-content button:hover {
+  background-color: #219150;
 }

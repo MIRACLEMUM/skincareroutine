@@ -1,20 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skincare Recommender App</title>
-  
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="skin.css" />
 </head>
 <body>
   <div class="container">
     <h1>Skincare Recommender</h1>
 
-    <label for="skinType" title="Choose the type that best matches your skin">Select your skin type:</label>
+    <label for="skinType">Select your skin type:</label>
     <select id="skinType">
       <option value="" disabled selected>Choose skin type</option>
       <option value="oily">Oily</option>
@@ -24,7 +22,7 @@
       <option value="normal">Normal</option>
     </select>
 
-    <label for="concern" title="Select all skin issues that affect you">Select your primary skin concerns (you can select multiple):</label>
+    <label for="concern">Select your primary skin concerns (you can select multiple):</label>
     <select id="concern" multiple size="6">
       <option value="acne">Acne</option>
       <option value="aging">Aging</option>
@@ -45,15 +43,6 @@
     </div>
   </div>
 
-  <!-- Onboarding popup -->
-  <div id="onboarding" class="onboarding-overlay" style="display:none;">
-    <div class="onboarding-content">
-      <h2>Welcome to Skincare Recommender!</h2>
-      <p>Select your skin type and concerns, then click “Get Routine” to see personalized tips.</p>
-      <button id="onboardingCloseBtn">Got it!</button>
-    </div>
-  </div>
-
-  <script src="style.js"></script>
+  <script src="skin.js"></script>
 </body>
 </html>
