@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skincare Recommender App</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Skincare Recommender</h1>
+
+    <label for="skinType">Select your skin type:</label>
+    <select id="skinType">
+      <option value="" disabled selected>Choose skin type</option>
+      <option value="oily">Oily</option>
+      <option value="dry">Dry</option>
+      <option value="combination">Combination</option>
+      <option value="sensitive">Sensitive</option>
+      <option value="normal">Normal</option>
+    </select>
+
+    <label for="concern">Select your primary skin concerns (you can select multiple):</label>
+    <select id="concern" multiple size="6">
+      <option value="acne">Acne</option>
+      <option value="aging">Aging</option>
+      <option value="dark_spots">Dark Spots</option>
+      <option value="redness">Redness</option>
+      <option value="dryness">Dryness</option>
+      <option value="dullness">Dullness</option>
+    </select>
+
+    <div class="button-group">
+      <button id="recommendBtn">Get Routine</button>
+      <button id="clearBtn" type="button" class="clear-button">Clear</button>
+    </div>
+
+    <div id="routine" class="routine-box" style="display:none;">
+      <h2>Your Recommended Routine:</h2>
+      <div id="products"></div>
+    </div>
+  </div>
+
+  <script src="style.js"></script>
+</body>
+</html>
